@@ -1,5 +1,7 @@
-CC= gcc
-CFLAGS= -Wall -Werror
+CC= g++
+CFLAGS= -c -std=c++11
 
-GennyDaHorse: GennyDaHorse.c 
-	$(CC) $(CFLAGS) GennyDaHorse.c -o GennyDaHorse
+All: GennyDaHorse
+
+GennyDaHorse: GennyDaHorse.cpp
+	$(CC) $(CFLAGS) GennyDaHorse.cpp -o GennyDaHorse

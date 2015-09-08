@@ -31,10 +31,11 @@ def ck(a):
 			return False
 	return True	
 
-# fuzzing engine
 def fe(ms):
 	return 
 if __name__ == '__main__':
+	for i in sys.argv:
+		if re.s
 	ps = []
 	ms = []
 	ec(ps)
