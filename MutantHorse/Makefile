@@ -1,5 +1,10 @@
-CC= gcc
-CFLAGS= -Wall -Werror
+CC= g++
+CFLAGS= -c -std=c++11
+O= MutantHorse.o
 
-MutantHorse: 
-	$(CC) $(CFLAGS) MutantHorse.c -o MutantHorse
+All: MutantHorse
+
+MutantHorse: MutantHorse.o
+	$(CC) $(O) -o Mutant
+MutantHorse.o:
+	$(CC) $(CFLAGS) MutantHorse.cpp -o MutantHorse.o
