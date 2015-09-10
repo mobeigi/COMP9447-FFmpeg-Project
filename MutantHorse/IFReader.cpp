@@ -1,5 +1,6 @@
 #include "IFReader.h"
 #include <iostream>
+#include <vector>
 
 namespace std {
 	bool IFReader::open(string fn) {
@@ -10,10 +11,10 @@ namespace std {
 		return false;
 	}
 	size_t IFReader::read(size_t N, unsigned char * buffer) {
-		char tbuffer[N];
+		vector<char> tbuffer(N);
 		if(fe->is_open()) {
-			fe->read(tbuffer, N);
-			memcpy(buffer, tbuffer, fe->gcount());
+			fe->read(tbuffer.data(), N);
+			memcpy(buffer, tbuffer.data(), fe->gcount());
 		}
 		return fe->gcount();
 	}
