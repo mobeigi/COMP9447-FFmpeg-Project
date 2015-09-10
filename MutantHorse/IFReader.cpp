@@ -10,10 +10,10 @@ namespace std {
 		return false;
 	}
 	size_t IFReader::read(size_t N, unsigned char * buffer) {
-		char temp_buffer[N];
+		char tbuffer[N];
 		if(fe->is_open()) {
-			fe->read(temp_buffer, N);
-			memcpy(buffer, temp_buffer, fe->gcount());
+			fe->read(tbuffer, N);
+			memcpy(buffer, tbuffer, fe->gcount());
 		}
 		return fe->gcount();
 	}
