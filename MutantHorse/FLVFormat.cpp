@@ -8,7 +8,7 @@ namespace std {
   {
     //Create IFReader
     IFReader ifreader;
-    
+
     bool open = ifreader.open(input);
     if (!open) {
       cerr << "Error opening file at: " << input << endl;
@@ -21,7 +21,7 @@ namespace std {
     //Read FLV header
     vector<unsigned char> flvheader(9);
 
-    size_t readBytes = ifreader.read(flvheader.size(), flvheader.data());
+    size_t readBytes = ifreader.read(flvheader.data(), flvheader.size());
 
     //Write FLV header
     ofs.write((char *)flvheader.data(), readBytes);
@@ -29,7 +29,7 @@ namespace std {
     //Read Metadata Packet Header (15 Bytes)
     vector<unsigned char> metadataPacket(15);
 
-    readBytes = ifreader.read(metadataPacket.size(), metadataPacket.data());
+    readBytes = ifreader.read(metadataPacket.data(), metadataPacket.size());
 
     //Write Metadata Packet Header
     ofs.write((char *)metadataPacket.data(), readBytes);
@@ -43,7 +43,7 @@ namespace std {
     //Read metadata payload (payloadSize Bytes)
     vector<unsigned char> metadataPayload(metadataPayloadSize);
 
-    readBytes = ifreader.read(metadataPayload.size(), metadataPayload.data());
+    readBytes = ifreader.read(metadataPayload.data(), metadataPayload.size());
 
     //Write metadata payload
     ofs.write((char *)metadataPayload.data(), readBytes);
@@ -56,7 +56,7 @@ namespace std {
       //Read packet header (15 bytes)
       vector<unsigned char> packet(15);
 
-      readBytes = ifreader.read(packet.size(), packet.data());
+      readBytes = ifreader.read(packet.data(), packet.size());
 
       //Write Metadata Packet Header
       ofs.write((char *)packet.data(), readBytes);
@@ -73,7 +73,7 @@ namespace std {
       //Read packet payload
       vector<unsigned char> packetPayload(packetPayloadSize);
 
-      readBytes = ifreader.read(packetPayload.size(), packetPayload.data());
+      readBytes = ifreader.read(packetPayload.data(), packetPayload.size(),);
       if (readBytes == 0) break;
 
       //Temp mutation of payload

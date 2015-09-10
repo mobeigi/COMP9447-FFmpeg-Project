@@ -10,7 +10,7 @@ namespace std {
 		size_t fsize;
 	public:
 		bool open(string);
-		size_t read(size_t, unsigned char *);
+		size_t read(unsigned char *, size_t);
 		void close();
 	};
 }
