@@ -10,14 +10,18 @@ namespace std {
 		}
 		return false;
 	}
+
 	size_t IFReader::read(size_t N, unsigned char * buffer) {
 		vector<char> tbuffer(N);
 		if(fe->is_open()) {
 			fe->read(tbuffer.data(), N);
 			memcpy(buffer, tbuffer.data(), fe->gcount());
+      return fe->gcount(); //return number of bytes read
 		}
-		return fe->gcount();
+
+		return 0; //read no bytes
 	}
+
 	void IFReader::close() {
 		if(fe->is_open()) {
 			fe->close();
