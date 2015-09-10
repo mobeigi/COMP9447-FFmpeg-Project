@@ -1,9 +1,7 @@
 #include "AVIFormat.h"
 
 namespace std {
-  AVIFormat::AVIFormat() {
-  }
-  void AVIFormat::mutate() {
+  void AVIFormat::mutate(const string input, const string output) {
 
   }
   void AVIFormat::generate() {

@@ -4,7 +4,11 @@
 #include "GContainerFormat.h"
 
 namespace std {
-  class FLVFormat : public GContainerFormat {};
+  class AVIFormat : public GContainerFormat {
+    public:
+    virtual void mutate(const string input, const string output);
+    virtual void generate();
+  };
 }
 
 #endif
