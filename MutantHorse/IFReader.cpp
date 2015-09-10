@@ -16,7 +16,7 @@ namespace std {
 		if(fe->is_open()) {
 			fe->read(tbuffer.data(), N);
 			memcpy(buffer, tbuffer.data(), fe->gcount());
-      return fe->gcount(); //return number of bytes read
+      			return fe->gcount(); //return number of bytes read
 		}
 
 		return 0; //read no bytes
