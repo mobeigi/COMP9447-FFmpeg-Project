@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\MutantHorse\AVIFormat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\MutantHorse\GContainerFormat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,15 +24,18 @@
     <ClCompile Include="..\..\MutantHorse\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\MutantHorse\FLVFormat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\MutantHorse\AVIFormat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\MutantHorse\GContainerFormat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\MutantHorse\IFReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MutantHorse\FLVFormat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

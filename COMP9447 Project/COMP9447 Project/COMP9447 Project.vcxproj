@@ -118,13 +118,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\MutantHorse\AVIFormat.cpp" />
+    <ClCompile Include="..\..\MutantHorse\FLVFormat.cpp" />
     <ClCompile Include="..\..\MutantHorse\GContainerFormat.cpp" />
     <ClCompile Include="..\..\MutantHorse\IFReader.cpp" />
     <ClCompile Include="..\..\MutantHorse\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\MutantHorse\AVIFormat.h" />
+    <ClInclude Include="..\..\MutantHorse\FLVFormat.h" />
     <ClInclude Include="..\..\MutantHorse\GContainerFormat.h" />
     <ClInclude Include="..\..\MutantHorse\IFReader.h" />
   </ItemGroup>

@@ -1,11 +1,11 @@
 #include "AVIFormat.h"
 
 namespace std {
-	AVIFormat::AVIFormat() {
-	}
-	void AVIFormat::mutate() {
+  AVIFormat::AVIFormat() {
+  }
+  void AVIFormat::mutate() {
 
-	}
-	void AVIFormat::generate() {
-	}
+  }
+  void AVIFormat::generate() {
+  }
 }

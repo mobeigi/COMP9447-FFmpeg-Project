@@ -1,10 +1,6 @@
 #ifndef __IFReader__
 #define __IFReader__
 
-namespace std {
-	class IFReader;
-}
-
 #include <fstream>
 
 namespace std {
