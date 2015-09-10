@@ -2,22 +2,21 @@
 #define __IFReader__
 
 namespace std {
-      class IFReader;
+	class IFReader;
 }
 
 #include <fstream>
 
 namespace std {
-      class IFReader  {
-      private:
-            ifstream * fe;
-            bool isO;
-            int fsize;
-      public:
-            bool open(string fn);
-            bool read(int size);
-            void close();
-      };
+	class IFReader  {
+	private:
+		ifstream * fe;
+		size_t fsize;
+	public:
+		bool open(string);
+		size_t read(size_t, unsigned char *);
+		void close();
+	};
 }
 
 #endif
