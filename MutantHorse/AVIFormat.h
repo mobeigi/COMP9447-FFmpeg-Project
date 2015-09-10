@@ -10,12 +10,10 @@ namespace std {
 namespace std {
       class AVIFormat : public GContainerFormat {
       public:
+            AVIFormat();
             void mutate();
             void generate();
-
-      private:
-            ifstream * fe;
       };
 }
 
-#endif __AVIFormat__
+#endif

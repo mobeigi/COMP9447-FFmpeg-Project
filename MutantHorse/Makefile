@@ -1,10 +1,16 @@
 CC= g++
 CFLAGS= -c -std=c++11
-O= MutantHorse.o
+CPP= IFReader.cpp GContainerFormat.cpp AVIFormat.cpp
+O= $(CPP:.cpp=.o)
+E= main
 
-All: MutantHorse
+all: $(O) $(E)
 
-MutantHorse: MutantHorse.o
-	$(CC) $(O) -o Mutant
-MutantHorse.o:
-	$(CC) $(CFLAGS) MutantHorse.cpp -o MutantHorse.o
+%.o: %.cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+$(E): $(O)
+	$(CC) $(O) $(E).cpp -o $@
+
+clean:
+	rm -f *.o $(E)
