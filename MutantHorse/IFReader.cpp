@@ -1,6 +1,4 @@
 #include "IFReader.h"
-#include <iostream>
-#include <vector>
 
 namespace std {
 	bool IFReader::open(string fn) {

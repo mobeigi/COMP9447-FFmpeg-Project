@@ -73,7 +73,7 @@ namespace std {
       //Read packet payload
       vector<unsigned char> packetPayload(packetPayloadSize);
 
-      readBytes = ifreader.read(packetPayload.data(), packetPayload.size(),);
+      readBytes = ifreader.read(packetPayload.data(), packetPayload.size());
       if (readBytes == 0) break;
 
       //Temp mutation of payload

@@ -2,6 +2,7 @@
 #define __IFReader__
 
 #include <fstream>
+#include <vector>
 
 namespace std {
 	class IFReader  {
