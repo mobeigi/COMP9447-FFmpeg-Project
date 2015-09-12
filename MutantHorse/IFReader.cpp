@@ -1,7 +1,7 @@
 #include "IFReader.h"
 
 namespace std {
-	bool IFReader::open(string fn) {
+	bool IFReader::open(const string fn) {
 		fe = new ifstream(fn, ios::in | ios::binary);
 		if(fe->is_open()) {
 			return true;
@@ -9,7 +9,7 @@ namespace std {
 		return false;
 	}
 
-	size_t IFReader::read(unsigned char * buffer, size_t N) {
+	size_t IFReader::read(unsigned char * buffer, const size_t N) {
 		vector<char> tbuffer(N);
 		if(fe->is_open()) {
 			memset(buffer, 0, N);

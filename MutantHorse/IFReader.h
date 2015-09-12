@@ -10,8 +10,8 @@ namespace std {
 		ifstream * fe;
 		size_t fsize;
 	public:
-		bool open(string);
-		size_t read(unsigned char *, size_t);
+		bool open(const string);
+		size_t read(unsigned char *, const size_t);
 		void close();
 	};
 }

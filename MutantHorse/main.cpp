@@ -9,7 +9,7 @@ int main (int argc, const char ** argv) {
 
   //Check for correct number of arguments
   if (argc != 3) {
-    cerr << "Usage: " << argv[0] << " <input file> <output file>";
+    cerr << "Usage: " << argv[0] << " <input file> <output file> " << endl;
     exit(1);
   }
 
