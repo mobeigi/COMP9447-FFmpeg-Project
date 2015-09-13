@@ -24,9 +24,6 @@
 		}
 	
 	== testfile.txt
-	My Game Engine, version 1.0.4.2
-	Log file created
-
 	[WARNING]: Hey! ... This is a warning message!
 	[ERROR]: WOW! Something really wrong is happening here!
 	This is just a simple text
