@@ -22,20 +22,21 @@ if __name__ == '__main__':
 	while True:
 
 		# calls the mutator
-		cmd = "".split()
+		cmd = "MutantHorse/MutantHorse ../test.flv ../mutated.flv".split()
 		mutator = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE)
 		
 		
 		# call process to print out "r"
 		
-		cmd = ['(echo r)']
+		cmd = ['echo', 'r']
 		print_r = Popen(cmd, stdout=PIPE)
 		
 		# call the program to be fuzzed
-		cmd = "gdb --silent --return-child-result --args ffmpeg/ffmeg -i mutated.flv output.avi".split()
+		cmd = "gdb --silent --return-child-result --args ../ffmpeg/ffmeg -i ../mutated.flv ../output.avi".split()
 		check_return_code = Popen(cmd, stdin=print_r.stdout, stdout=PIPE, stderr=PIPE)
 		
 		# print return code and display
+		print check_return_code.stdout.read();
 		return_code = check_return_code.poll()
 		print return_code
 		break
