@@ -76,11 +76,10 @@ namespace std {
       readBytes = ifreader.read(packetPayload.data(), packetPayload.size());
       if (readBytes == 0) break;
 
-      //Temp mutation of payload
-
       //initialize random seed
       srand(time(NULL));
 
+      //Temp mutation of payload
       for (auto it = packetPayload.begin(); it != packetPayload.end(); ++it) {
         *it = rand() % 256;
       }
