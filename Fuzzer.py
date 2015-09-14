@@ -1,30 +1,32 @@
 #! /usr/bin/python
 
-import hashlib, inspect, os, re, select, sys, time
-
+import signal
 import subprocess
-def ck(a):
+
+check_process_exists(process_path, devnull):
 	try:
-		d = open(os.devnull, 'w')
-		subprocess.Popen([a], stdout = d, stderr = d).communicate()
-		d.close()
-	except OSError as e:
-		# ENOENT
-		if e.errno == os.errno.ENOENT:
+		process = subprocess.Popen([process_path], stdout=devnull, stder=devnull).communicate()
+	except OSError as err:
+		if err.errno == os.errno.ENOENT:
 			return False
 	return True
-
-def fe(ms):
-	return
+	
+sigterm_handler(a, b):
+	print "%s, %s" % (a, b) 
+	
 if __name__ == '__main__':
 	devnull = open(os.devnull, 'w')
-
+	signal.signal(signal.SIGTERM, sigterm_handler)
+	
+	# check if our mutator and program we are fuzzing exists
+	check_process_exists("MutantHorse/MutantHorse", devnull)
+	check_process_exists("../ffmpeg/ffmpeg, devnull)
+	
 	while True:
 
 		# calls the mutator
 		cmd = "MutantHorse/MutantHorse ../test.flv ../mutated.flv".split()
-		mutator = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		
+		mutator = subprocess.Popen(cmd, stdout=devnull, stderr=devnull)
 		
 		# call process to print out "r"
 		
@@ -35,11 +37,13 @@ if __name__ == '__main__':
 		cmd = "gdb --silent --return-child-result --args ../ffmpeg/ffmpeg -i ../mutated.flv ../output.avi".split()
 		gdb_output = subprocess.Popen(cmd, stdin=print_r.stdout, stdout=devnull, stderr=devnull)
 
+		# wait for gdb to terminate
 		gdb_output.wait()		
 		
 		# print return code and display
 		return_code = gdb_output.poll()
 		print return_code
+		
 		break
 				
 
