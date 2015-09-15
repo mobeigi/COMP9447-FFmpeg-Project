@@ -1,19 +1,15 @@
-#include "Mutator.h"
-
 #include <time.h>
 #include <cstdlib>
 
-namespace std {
-  class RandomMutator : public Mutator {
-  public:
+#include "RandomMutator.h"
 
+namespace std {
     RandomMutator::RandomMutator() {
       //Create seed
       srand(time(NULL));
     }
 
-    unsigned char mutate(unsigned char inputByte) const {
+    unsigned char RandomMutator::mutate(unsigned char inputByte) {
       return rand() % 256;
     }
-  };
 }
