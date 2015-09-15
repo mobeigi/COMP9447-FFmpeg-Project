@@ -1,7 +1,7 @@
 #include "FLVFormat.h"
-
+#include "RandomMutator.h"
 #include <vector>
-#include <time.h>
+
 
 namespace std {
   void FLVFormat::mutate(const string input, const string output)
@@ -76,12 +76,11 @@ namespace std {
       readBytes = ifreader.read(packetPayload.data(), packetPayload.size());
       if (readBytes == 0) break;
 
-      //initialize random seed
-      srand(time(NULL));
-
       //Temp mutation of payload
+      RandomMutator rMutate;
+
       for (auto it = packetPayload.begin(); it != packetPayload.end(); ++it) {
-        *it = rand() % 256;
+        *it = rMutate.mutate(*it);
       }
 
       //Write metadata payload
