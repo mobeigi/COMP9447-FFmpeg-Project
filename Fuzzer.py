@@ -4,19 +4,21 @@ import ConfigParser
 import os
 import signal
 import subprocess
+import sys
 
 from shutil import copy2
 
-check_process_exists(process_path, devnull):
+def check_process_exists(process_path, devnull):
 	try:
-		process = subprocess.Popen([process_path], stdout=devnull, stder=devnull).communicate()
+		process = subprocess.Popen([process_path], stdout=devnull, stderr=devnull).communicate()
 	except OSError as err:
 		if err.errno == os.errno.ENOENT:
 			return False
 	return True
 
-sigterm_handler(a, b):
+def sigterm_handler(a, b):
 	print "%s, %s" % (a, b)
+	sys.exit()
 
 if __name__ == '__main__':
 	devnull = open(os.devnull, 'w')
@@ -27,26 +29,27 @@ if __name__ == '__main__':
 	signal.signal(signal.SIGTERM, sigterm_handler)
 
 	# check if our mutator and program we are fuzzing exists
-	check_process_exists(config.get('fuzzer_path'), devnull)
-	check_process_exists(config.get('program_path'), devnull)
+	check_process_exists(config.get('General','fuzzer_path'), devnull)
+
+	check_process_exists(config.get('General','program_path'), devnull)
 
 	# check if seed file exists
 	if not os.path.exists('input_folder_path'):
-		return 1
-	input_file_path = config.get('input_folder_path') . 'input.flv'
+		sys.exit(1)
+	input_file_path = config.get('General','input_folder_path') + 'input.flv'
 	if not os.path.exists(input_file_path):
-		return 1
-	mutated_file_path = config.get('input_folder_path') . 'mutated.flv'
-	output_file_path = config.get('input_folder_path') . 'output.avi'
+		sys.exit(1)
+	mutated_file_path = config.get('General','input_folder_path') + 'mutated.flv'
+	output_file_path = config.get('General','input_folder_path') + 'output.avi'
 
 	# check if file logging folder exists
-	if not os.path.exists(config.get('output_folder_path')):
-		os.mkdir(config.get('output_folder_path'))
+	if not os.path.exists(config.get('General','output_folder_path')):
+		os.mkdir(config.get('General','output_folder_path'))
 
 	while True:
 
 		# calls the mutator
-		cmd = [config.get('fuzzer_path'), input_file_path, mutated_file_path]
+		cmd = [config.get('General','fuzzer_path'), input_file_path, mutated_file_path]
 		mutator = subprocess.Popen(cmd, stdout=devnull, stderr=devnull)
 
 		# call process to print out "r"
@@ -55,7 +58,7 @@ if __name__ == '__main__':
 
 		# call the program to be fuzzed
 		cmd = "gdb --silent --return-child-result --args".split()
-		cmd = cmd + [config.get('program_path'), mutated_file_path, output_file_path]
+		cmd = cmd + [config.get('General','program_path'), mutated_file_path, output_file_path]
 		gdb_output = subprocess.Popen(cmd, stdin=print_r.stdout, stdout=devnull, stderr=devnull)
 
 		# wait for gdb to terminate
@@ -80,12 +83,12 @@ if __name__ == '__main__':
 		while True:
 			rand = time.strftime("%d%m%Y")
 			rand = '_'.join(rand, os.urandom(16))
-			if not os.path.exists(config.get('output_folder_path') + rand):
+			if not os.path.exists(config.get('General','output_folder_path') + rand):
 				break
 		os.mkdir(config('output_folder_path') + rand)
 		file_to_remove.append(mu)
 		for fn in file_to_remove:
 			if os.path.exists(fn):
-				copy2(fn, "/".join(config.get('output_folder_path'), rand, os.basename(fn)))
+				copy2(fn, "/".join(config.get('General','output_folder_path'), rand, os.basename(fn)))
 				os.remove(fn)
 		break
