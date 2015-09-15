@@ -27,6 +27,9 @@
     <ClCompile Include="..\..\MutantHorse\RandomMutator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\MutantHorse\RandomOffsetMutator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MutantHorse\GContainerFormat.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\MutantHorse\RandomMutator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MutantHorse\RandomOffsetMutator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
