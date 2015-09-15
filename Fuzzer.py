@@ -29,14 +29,17 @@ if __name__ == '__main__':
 	signal.signal(signal.SIGTERM, sigterm_handler)
 
 	# check if our mutator and program we are fuzzing exists
-	check_process_exists(config.get('General','fuzzer_path'), devnull)
+	if check_process_exists(config.get('General','fuzzer_path'), devnull) == False:
+		print "Fuzzer process doesn't exist"
+	if check_process_exists(config.get('General','program_path'), devnull) == False:
+		print "Program path doesn't exist"
 
-	check_process_exists(config.get('General','program_path'), devnull)
+
 
 	# check if seed file exists
-	if not os.path.exists('input_folder_path'):
+	if not os.path.exists(config.get('General','input_folder_path')):
 		sys.exit(1)
-	input_file_path = config.get('General','input_folder_path') + 'input.flv'
+	input_file_path = config.get('General','input_folder_path') + 'test.flv'
 	if not os.path.exists(input_file_path):
 		sys.exit(1)
 	mutated_file_path = config.get('General','input_folder_path') + 'mutated.flv'
@@ -45,6 +48,7 @@ if __name__ == '__main__':
 	# check if file logging folder exists
 	if not os.path.exists(config.get('General','output_folder_path')):
 		os.mkdir(config.get('General','output_folder_path'))
+
 
 	while True:
 
@@ -66,6 +70,7 @@ if __name__ == '__main__':
 
 		# get return signal
 		return_code = gdb_output.poll()
+		print return_code
 
 		# if return_code is normal, delete mutated and mutated output
 		files_to_remove = [input_file_path, output_file_path]
@@ -73,11 +78,14 @@ if __name__ == '__main__':
 			for fn in files_to_remove:
 				if os.path.exists(fn):
 					os.remove(fn)
-			continue
+
+			break;
 
 		# make mutated file our new seed
 		copy2(mutated_file_path, input_file_path)
 		os.remove(mutated_file_path)
+
+
 
 		# otherwise store and clean up for repeat
 		while True:
@@ -85,10 +93,11 @@ if __name__ == '__main__':
 			rand = '_'.join(rand, os.urandom(16))
 			if not os.path.exists(config.get('General','output_folder_path') + rand):
 				break
-		os.mkdir(config('output_folder_path') + rand)
+		os.mkdir(config.get('General','output_folder_path') + rand)
 		file_to_remove.append(mu)
 		for fn in file_to_remove:
 			if os.path.exists(fn):
 				copy2(fn, "/".join(config.get('General','output_folder_path'), rand, os.basename(fn)))
 				os.remove(fn)
 		break
+	print "Exiting.."
