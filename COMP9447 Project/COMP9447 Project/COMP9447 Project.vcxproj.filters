@@ -24,7 +24,7 @@
     <ClCompile Include="..\..\MutantHorse\FLVFormat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RandomMutator.cpp">
+    <ClCompile Include="..\..\MutantHorse\RandomMutator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClInclude Include="..\..\MutantHorse\FLVFormat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mutator.h">
+    <ClInclude Include="..\..\MutantHorse\Mutator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RandomMutator.h">
+    <ClInclude Include="..\..\MutantHorse\RandomMutator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

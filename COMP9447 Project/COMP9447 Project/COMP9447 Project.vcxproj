@@ -121,14 +121,14 @@
     <ClCompile Include="..\..\MutantHorse\FLVFormat.cpp" />
     <ClCompile Include="..\..\MutantHorse\IFReader.cpp" />
     <ClCompile Include="..\..\MutantHorse\main.cpp" />
-    <ClCompile Include="RandomMutator.cpp" />
+    <ClCompile Include="..\..\MutantHorse\RandomMutator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MutantHorse\FLVFormat.h" />
     <ClInclude Include="..\..\MutantHorse\GContainerFormat.h" />
     <ClInclude Include="..\..\MutantHorse\IFReader.h" />
-    <ClInclude Include="Mutator.h" />
-    <ClInclude Include="RandomMutator.h" />
+    <ClInclude Include="..\..\MutantHorse\Mutator.h" />
+    <ClInclude Include="..\..\MutantHorse\RandomMutator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

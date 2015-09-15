@@ -77,8 +77,10 @@ namespace std {
       if (readBytes == 0) break;
 
       //Temp mutation of payload
+      RandomMutator rMutate;
+
       for (auto it = packetPayload.begin(); it != packetPayload.end(); ++it) {
-        *it = rand() % 256;
+        *it = rMutate.mutate(*it);
       }
 
       //Write metadata payload
