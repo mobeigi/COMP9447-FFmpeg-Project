@@ -10,7 +10,6 @@ namespace std {
 	class GContainerFormat {
 	public:
 		virtual void mutate(const string input, const string output) = 0;
-		virtual void generate() = 0;
 	};
 }
 

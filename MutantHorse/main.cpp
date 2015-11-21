@@ -8,8 +8,6 @@
 
 //INITIALIZE_EASYLOGGINGPP
 
-#define PROCESS_GENERATE "generate"
-#define PROCESS_GENERATE_FLAG "g"
 #define PROCESS_MUTATE "mutate"
 #define PROCESS_MUTATE_FLAG "m"
 
@@ -43,10 +41,7 @@ int main (int argc, const char ** argv) {
   if (inputExt == "flv") {
     FLVFormat flvFile;
 
-    if (fuzzMode == PROCESS_GENERATE || fuzzMode == PROCESS_GENERATE_FLAG) {
-      //flvFile.generate();
-    }
-    else if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
+    if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
       flvFile.mutate(inputFile, outputFile);
     }
   }

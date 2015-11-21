@@ -7,7 +7,6 @@ namespace std {
   class FLVFormat : public GContainerFormat {
   public:
     virtual void mutate(const string input, const string output);
-    virtual void generate();
   };
 }
 

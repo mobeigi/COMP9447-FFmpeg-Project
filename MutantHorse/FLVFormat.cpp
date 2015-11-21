@@ -89,8 +89,4 @@ namespace std {
     }
 
   }
-
-  void FLVFormat::generate() {
-    //Todo
-  }
 }
