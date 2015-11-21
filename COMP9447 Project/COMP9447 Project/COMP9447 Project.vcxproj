@@ -123,6 +123,7 @@
     <ClCompile Include="..\..\MutantHorse\main.cpp" />
     <ClCompile Include="..\..\MutantHorse\RandomMutator.cpp" />
     <ClCompile Include="..\..\MutantHorse\RandomOffsetMutator.cpp" />
+    <ClCompile Include="..\..\MutantHorse\WAVFormat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MutantHorse\FLVFormat.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="..\..\MutantHorse\Mutator.h" />
     <ClInclude Include="..\..\MutantHorse\RandomMutator.h" />
     <ClInclude Include="..\..\MutantHorse\RandomOffsetMutator.h" />
+    <ClInclude Include="..\..\MutantHorse\WAVFormat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

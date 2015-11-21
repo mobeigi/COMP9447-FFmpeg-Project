@@ -4,6 +4,7 @@
 #include <string> 
 
 #include "FLVFormat.h"
+#include "WAVFormat.h"
 //#include "easylogging.h"
 
 //INITIALIZE_EASYLOGGINGPP
@@ -44,6 +45,14 @@ int main (int argc, const char ** argv) {
     if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
       flvFile.mutate(inputFile, outputFile);
     }
+  }
+  else if (inputExt == "wav") {
+    WAVFormat wavfile;
+
+    if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
+      wavfile.mutate(inputFile, outputFile);
+    }
+
   }
   //Unsupported format
   else {
