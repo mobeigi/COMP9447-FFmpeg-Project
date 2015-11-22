@@ -5,6 +5,7 @@
 
 #include "FLVFormat.h"
 #include "WAVFormat.h"
+#include "MIDIFormat.h"
 //#include "easylogging.h"
 
 //INITIALIZE_EASYLOGGINGPP
@@ -51,6 +52,14 @@ int main (int argc, const char ** argv) {
 
     if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
       wavfile.mutate(inputFile, outputFile);
+    }
+
+  }
+  else if (inputExt == "mid" || inputExt == "midi") {
+    MIDIFormat midiFile;
+
+    if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
+      midiFile.mutate(inputFile, outputFile);
     }
 
   }

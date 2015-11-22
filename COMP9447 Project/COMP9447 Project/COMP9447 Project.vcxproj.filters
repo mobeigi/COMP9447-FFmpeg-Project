@@ -33,6 +33,9 @@
     <ClCompile Include="..\..\MutantHorse\WAVFormat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\MutantHorse\MIDIFormat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MutantHorse\GContainerFormat.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\MutantHorse\WAVFormat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MutantHorse\MIDIFormat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

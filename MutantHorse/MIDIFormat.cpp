@@ -44,7 +44,7 @@ namespace std {
 	//Determine the length of the track data
 	size_t dataLength = 0;
 	for (int i = 4; i <= 7; i++) {
-	    dataLength = (trackheader << 8) + (trackheader[i]);
+	    dataLength = (dataLength << 8) + (trackheader[i]);
 	}
 
 	//Prepare a mutator
@@ -53,6 +53,7 @@ namespace std {
 	//Read the track data, and mutate it
 	vector<unsigned char> trackdata(dataLength);
 	readBytes = ifreader.read(trackdata.data(), trackdata.size());
+
 	for (auto it = trackdata.begin(); it != trackdata.end(); ++it) {
 	    *it = randomMutator.mutate(*it);
 	}
