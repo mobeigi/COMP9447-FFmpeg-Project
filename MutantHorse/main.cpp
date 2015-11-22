@@ -71,7 +71,8 @@ int main (int argc, const char ** argv) {
       g20.mutate(inputFile, outputFile);
     }
     else if (generic_mutator_flag == "g20p") {
-      //todo
+      Generic20 g20;
+      g20.mutate(inputFile, outputFile, probability);
     }
     else if (generic_mutator_flag == "z") {
       //todo

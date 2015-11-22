@@ -66,5 +66,6 @@ namespace std {
       totalRead += 128;
     }
 
+    ifreader.close();
   }
 }

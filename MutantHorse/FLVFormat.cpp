@@ -88,5 +88,6 @@ namespace std {
       ofs.write((char *)packetPayload.data(), readBytes);
     }
 
+    ifreader.close();
   }
 }

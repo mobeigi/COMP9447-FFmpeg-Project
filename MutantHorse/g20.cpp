@@ -25,7 +25,7 @@ namespace std {
     ofstream ofs(output, std::ofstream::binary);
 
     //Determine the upper bound for mutations (20% mark)
-    size_t upper_bound = totalSize * 0.2;
+    size_t upper_bound = static_cast<size_t>(totalSize * 0.2);
 
     //Pick two random points
     size_t start, end;

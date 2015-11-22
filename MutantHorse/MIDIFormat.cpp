@@ -61,5 +61,7 @@ namespace std {
 	//Write the mutated data
 	ofs.write((char *)trackdata.data(),readBytes);
     }
+
+    ifreader.close();
   }
 }

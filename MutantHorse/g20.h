@@ -7,6 +7,7 @@ namespace std {
   class Generic20 : public GContainerFormat {
   public:
     virtual void mutate(const string input, const string output);
+    virtual void mutate(const string input, const string output, double probability);
   };
 }
 
