@@ -42,6 +42,9 @@
     <ClCompile Include="..\..\MutantHorse\gf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\MutantHorse\z.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\MutantHorse\GContainerFormat.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\MutantHorse\gf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MutantHorse\z.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

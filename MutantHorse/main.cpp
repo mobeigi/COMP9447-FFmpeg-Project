@@ -8,6 +8,7 @@
 #include "MIDIFormat.h"
 #include "gf.h"
 #include "g20.h"
+#include "z.h"
 
 //#include "easylogging.h"
 
@@ -90,10 +91,18 @@ int main (int argc, const char ** argv) {
       g20.mutate(inputFile, outputFile, probability);
     }
     else if (generic_mutator_flag == "z") {
-      //todo
+      ZeroMiddle zm;
+      zm.mutate(inputFile, outputFile);
     }
     else if (generic_mutator_flag == "zp") {
-      //todo
+      if (!argProvided) {
+        cerr << "Probability argument is missing." << endl;
+        cerr << "Usage: " << argv[0] << " <input file> <output file> <generic mutator flag> <probability>" << endl;
+        exit(1);
+      }
+
+      ZeroMiddle zm;
+      zm.mutate(inputFile, outputFile, probability);
     }
     else {
       cerr << "Provided generic mutator flag is not recognized." << endl;
@@ -123,12 +132,6 @@ int main (int argc, const char ** argv) {
       exit(1);
     }
   }
-
-  //Keep window alive in visual studio
-#ifdef _DEBUG
-    std::cin.get();
-    std::cin.ignore();
-#endif
 
   return 0;
 }
