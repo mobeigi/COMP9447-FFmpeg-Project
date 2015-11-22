@@ -6,6 +6,8 @@
 #include "FLVFormat.h"
 #include "WAVFormat.h"
 #include "MIDIFormat.h"
+#include "g20.h"
+
 //#include "easylogging.h"
 
 using namespace std;
@@ -65,7 +67,8 @@ int main (int argc, const char ** argv) {
       //todo
     }
     else if (generic_mutator_flag == "g20") {
-      //todo
+      Generic20 g20;
+      g20.mutate(inputFile, outputFile);
     }
     else if (generic_mutator_flag == "g20p") {
       //todo
