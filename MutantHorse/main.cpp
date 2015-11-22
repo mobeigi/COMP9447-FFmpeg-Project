@@ -8,30 +8,31 @@
 #include "MIDIFormat.h"
 //#include "easylogging.h"
 
-//INITIALIZE_EASYLOGGINGPP
-
-#define PROCESS_MUTATE "mutate"
-#define PROCESS_MUTATE_FLAG "m"
-
 using namespace std;
 
 int main (int argc, const char ** argv) {
 
   //Check for correct number of arguments
-  if (argc != 4) {
-    cerr << "Usage: " << argv[0] << " <input file> <output file> <fuzz_mode>" << endl;
+  if (argc < 3 || argc > 5) {
+    cerr << "Usage: " << argv[0] << " <input file> <output file> <generic mutator flag> <probability>" << endl;
     exit(1);
   }
 
   //Set input/output paths
   string inputFile = argv[1];
   string outputFile = argv[2];
-  string fuzzMode = argv[3];
-  std::transform(fuzzMode.begin(), fuzzMode.end(), fuzzMode.begin(), ::tolower); //convert to lower case
 
   //Detect file extensions
   string inputExt = inputFile.substr(inputFile.find_last_of(".") + 1);
   string outputExt = outputFile.substr(outputFile.find_last_of(".") + 1);
+
+  //Check if input file exists
+  std::ifstream infile(inputFile);
+  if (!infile.good()) {
+    cerr << "Input file does not exist." << endl;
+    exit(1);
+  }
+  infile.close();
 
   //Ensure extensions are same
   if (inputExt != outputExt) {
@@ -39,34 +40,69 @@ int main (int argc, const char ** argv) {
     exit(1);
   }
 
-  //Ensure extensions is supported
-  if (inputExt == "flv") {
-    FLVFormat flvFile;
+  //Check if we should use generic mutators
+  if (argc >= 4) {
+    string generic_mutator_flag = argv[3];
+    std::transform(generic_mutator_flag.begin(), generic_mutator_flag.end(), generic_mutator_flag.begin(), ::tolower); //convert to lower case
+    double probability = 0.0;
+    bool argProvided = false;
 
-    if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
+    //Check if argument was provided
+    if (argc == 5) {
+      probability = atof(argv[4]);
+      argProvided = true;
+    }
+    //Check probability is within bounds [0.0, 1.0]
+    if (!(probability >= 0.0 && probability <= 1.0)) {
+      cerr << "Provided probability argument is out of bounds. Must be within [0.0, 1.0]." << endl;
+      exit(1);
+    }
+
+    if (generic_mutator_flag == "gf") {
+      //todo
+    }
+    else if (generic_mutator_flag == "gfp") {
+      //todo
+    }
+    else if (generic_mutator_flag == "g20") {
+      //todo
+    }
+    else if (generic_mutator_flag == "g20p") {
+      //todo
+    }
+    else if (generic_mutator_flag == "z") {
+      //todo
+    }
+    else if (generic_mutator_flag == "zp") {
+      //todo
+    }
+    else {
+      cerr << "Provided generic mutator flag is not recognized." << endl;
+      exit(1);
+    }
+  }
+  //Otherwise, we will use mutators for supported file types
+  else {
+
+    //Ensure extensions is supported
+    if (inputExt == "flv") {
+      FLVFormat flvFile;
       flvFile.mutate(inputFile, outputFile);
     }
-  }
-  else if (inputExt == "wav") {
-    WAVFormat wavfile;
-
-    if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
+    else if (inputExt == "wav") {
+      WAVFormat wavfile;
       wavfile.mutate(inputFile, outputFile);
+
     }
-
-  }
-  else if (inputExt == "mid" || inputExt == "midi") {
-    MIDIFormat midiFile;
-
-    if (fuzzMode == PROCESS_MUTATE || fuzzMode == PROCESS_MUTATE_FLAG) {
+    else if (inputExt == "mid" || inputExt == "midi") {
+      MIDIFormat midiFile;
       midiFile.mutate(inputFile, outputFile);
     }
-
-  }
-  //Unsupported format
-  else {
-    cerr << "Provided file extention is not supported." << endl;
-    exit(1);
+    //Unsupported format
+    else {
+      cerr << "Provided file extention is not supported." << endl;
+      exit(1);
+    }
   }
 
   //Keep window alive in visual studio
