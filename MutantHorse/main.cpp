@@ -6,6 +6,7 @@
 #include "FLVFormat.h"
 #include "WAVFormat.h"
 #include "MIDIFormat.h"
+#include "gf.h"
 #include "g20.h"
 
 //#include "easylogging.h"
@@ -61,10 +62,18 @@ int main (int argc, const char ** argv) {
     }
 
     if (generic_mutator_flag == "gf") {
-      //todo
+      GenericFull gf;
+      gf.mutate(inputFile, outputFile);
     }
     else if (generic_mutator_flag == "gfp") {
-      //todo
+      if (!argProvided) {
+        cerr << "Probability argument is missing." << endl;
+        cerr << "Usage: " << argv[0] << " <input file> <output file> <generic mutator flag> <probability>" << endl;
+        exit(1);
+      }
+
+      GenericFull gf;
+      gf.mutate(inputFile, outputFile, probability);
     }
     else if (generic_mutator_flag == "g20") {
       Generic20 g20;
