@@ -71,6 +71,12 @@ int main (int argc, const char ** argv) {
       g20.mutate(inputFile, outputFile);
     }
     else if (generic_mutator_flag == "g20p") {
+      if (!argProvided) {
+        cerr << "Probability argument is missing." << endl;
+        cerr << "Usage: " << argv[0] << " <input file> <output file> <generic mutator flag> <probability>" << endl;
+        exit(1);
+      }
+
       Generic20 g20;
       g20.mutate(inputFile, outputFile, probability);
     }
