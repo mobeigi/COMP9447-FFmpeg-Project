@@ -59,7 +59,7 @@ if __name__ == '__main__':
 			print "File exists!! There is an issue, and You are AWESOME!"
 
 		# calls the mutator
-		cmd = [config.get('General','fuzzer_path'), input_file_path, mutated_file_path, "mutate"]
+		cmd = [config.get('General','fuzzer_path'), input_file_path, mutated_file_path]
 		mutator = subprocess.Popen(cmd, stdout=devnull, stderr=devnull)
 
 		# call process to print out "r"
