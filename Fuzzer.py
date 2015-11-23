@@ -52,8 +52,7 @@ if __name__ == '__main__':
 	if not os.path.exists(config.get('General','results_folder_path')):
 		os.mkdir(config.get('General','results_folder_path'))
 
-	counter = 200
-	while (counter != 0):
+	while (True):
 
 		if (os.path.exists(output_file_path)):		
 			print "File exists!! There is an issue, and You are AWESOME!"
@@ -103,5 +102,3 @@ if __name__ == '__main__':
 		if (os.path.exists(output_file_path)):		
 			os.remove(output_file_path)
 			
-		counter -= 1
-	print "Exiting.."
