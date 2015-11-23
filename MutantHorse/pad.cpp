@@ -1,5 +1,4 @@
 #include "pad.h"
-#include "RandomMutator.h"
 #include <vector>
 
 
@@ -30,10 +29,12 @@ namespace std {
 	
 	//Append 200 zeroes to the end of the file
 	vector<unsigned char> paddingData(200);
-	for (int i = 0; i < paddingData.size(); i++) {
+	
+    for (int i = 0; i < paddingData.size(); i++) {
 		paddingData[i] = 0;
 	}
-	ofs.write((char *)paddingData.data(),200)
+    ofs.write((char *)paddingData.data(), 200);
+
     ifreader.close();
   }
 }

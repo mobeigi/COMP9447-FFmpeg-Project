@@ -9,6 +9,7 @@
 #include "gf.h"
 #include "g20.h"
 #include "z.h"
+#include "pad.h"
 
 //#include "easylogging.h"
 
@@ -103,6 +104,10 @@ int main (int argc, const char ** argv) {
 
       ZeroMiddle zm;
       zm.mutate(inputFile, outputFile, probability);
+    }
+    else if (generic_mutator_flag == "pad") {
+      PaddingMutator pm;
+      pm.mutate(inputFile, outputFile);
     }
     else {
       cerr << "Provided generic mutator flag is not recognized." << endl;

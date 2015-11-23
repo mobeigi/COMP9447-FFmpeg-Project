@@ -124,6 +124,7 @@
     <ClCompile Include="..\..\MutantHorse\IFReader.cpp" />
     <ClCompile Include="..\..\MutantHorse\main.cpp" />
     <ClCompile Include="..\..\MutantHorse\MIDIFormat.cpp" />
+    <ClCompile Include="..\..\MutantHorse\pad.cpp" />
     <ClCompile Include="..\..\MutantHorse\RandomMutator.cpp" />
     <ClCompile Include="..\..\MutantHorse\RandomOffsetMutator.cpp" />
     <ClCompile Include="..\..\MutantHorse\WAVFormat.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="..\..\MutantHorse\IFReader.h" />
     <ClInclude Include="..\..\MutantHorse\MIDIFormat.h" />
     <ClInclude Include="..\..\MutantHorse\Mutator.h" />
+    <ClInclude Include="..\..\MutantHorse\pad.h" />
     <ClInclude Include="..\..\MutantHorse\RandomMutator.h" />
     <ClInclude Include="..\..\MutantHorse\RandomOffsetMutator.h" />
     <ClInclude Include="..\..\MutantHorse\WAVFormat.h" />
