@@ -1,6 +1,5 @@
 #include "FLVFormat.h"
 #include "RandomMutator.h"
-#include "RandomOffsetMutator.h"
 #include <vector>
 
 
@@ -78,16 +77,15 @@ namespace std {
       if (readBytes == 0) break;
 
       //Temp mutation of payload
-      RandomOffsetMutator roMutate;
+      RandomMutator rMutate;
 
       for (auto it = packetPayload.begin(); it != packetPayload.end(); ++it) {
-        *it = roMutate.mutate(*it);
+        *it = rMutate.mutate(*it);
       }
 
       //Write metadata payload
       ofs.write((char *)packetPayload.data(), readBytes);
     }
 
-    ifreader.close();
   }
 }

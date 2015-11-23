@@ -32,7 +32,7 @@ int main (int argc, const char ** argv) {
   string outputExt = outputFile.substr(outputFile.find_last_of(".") + 1);
 
   //Check if input file exists
-  std::ifstream infile(inputFile);
+  std::ifstream infile(inputFile.c_str());
   if (!infile.good()) {
     cerr << "Input file does not exist." << endl;
     exit(1);

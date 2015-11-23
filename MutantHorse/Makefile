@@ -1,6 +1,6 @@
 CC= g++
-CFLAGS= -c -std=c++11
-CPP= IFReader.cpp AVIFormat.cpp FLVFormat.cpp
+CFLAGS= -c -O2 -fpermissive -std=c++11
+CPP= FLVFormat.cpp g20.cpp gf.cpp IFReader.cpp MIDIFormat.cpp pad.cpp RandomMutator.cpp RandomOffsetMutator.cpp WAVFormat.cpp z.cpp
 O= $(CPP:.cpp=.o)
 E= main
 
