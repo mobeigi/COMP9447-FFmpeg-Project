@@ -1,4 +1,4 @@
-== MutantHorse, Fuzzer.py (LINUX)
+== MutantHorse, Fuzzer.py (LINUX) ==
 
 1. In config.conf, make these 2 lines consistent:
 	- fuzzer_path: change it to where the MutantHorse program is located
