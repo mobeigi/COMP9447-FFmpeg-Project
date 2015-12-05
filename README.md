@@ -6,6 +6,6 @@ Refer to **JIMffmpegAssignmentReport.pdf** for the full report detailing what ou
 
 Group Members
 -----
-Jason Ng ([@jsnng](https://github.com/jsnng)) 
-Ian Wong ([@iancwwong](https://github.com/iancwwong)) 
-Mohammad Ghasembeigi ([@mohammadg](https://github.com/mohammadg)) 
+* Jason Ng ([@jsnng](https://github.com/jsnng)) 
+* Ian Wong ([@iancwwong](https://github.com/iancwwong)) 
+* Mohammad Ghasembeigi ([@mohammadg](https://github.com/mohammadg)) 
